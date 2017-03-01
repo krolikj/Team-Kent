@@ -1,4 +1,4 @@
-﻿<html>
+<html>
 <head>
 <title>Capstone 467 Winter 2017 - GV Student Helper</title>
 <meta charset="UTF-8">
@@ -113,8 +113,7 @@ i {
 		
 	}
 
-	//close the connection to the databace
-	$conn->close();
+	
       ?>
 	<!-- ******end of php code******-->
 
@@ -194,86 +193,24 @@ i {
           <td><strong>Kirkhof Center</strong> <br>
             <strong>The Connection</strong></td>
         </tr>
+	
+        <!-- ******php code******-->
+	<?php
+	
+	//quary - get and print buildings name
+	$sql = "SELECT * FROM buildings ORDER BY next";
+	$result = mysqli_query($conn,$sql);
+	while($row2=mysqli_fetch_array($result)) {
+		  echo "<tr><td><strong>";
+		  echo $row2["name"];
+		  echo "</strong></td></tr>";
+		  
+         }
 
-        <tr>
-          <td><strong>Au Sable Hall</strong></td>
-        </tr>
-
-        <tr>
-          <td><strong>The Commons</strong></td>
-        </tr>
-
-        <tr>
-          <td><strong>The Connection</strong></td>
-        </tr>
-
-        <tr>
-          <td><strong>The Fieldhouse</strong></td>
-        </tr>
-
-        <tr>
-          <td><strong>Henry Hall</strong></td>
-        </tr>
-
-        <tr>
-          <td><strong>Holton-Hooker</strong></td>
-        </tr>
-
-        <tr>
-          <td><strong>Kirkhof Center</strong></td>
-        </tr>
-
-        <tr>
-          <td><strong>Kleiner Commons</strong></td>
-        </tr>
-
-        <tr>
-          <td><strong>Kindschi Hall of Science</strong></td>
-        </tr>
-
-        <tr>
-          <td><strong>Lake Huron Hall</strong></td>
-        </tr>
-
-        <tr>
-          <td><strong>Lake Michigan Hall</strong></td>
-        </tr>
-
-        <tr>
-          <td><strong>Lake Ontario Hall</strong></td>
-        </tr>
-
-        <tr>
-          <td><strong>Lake Superior Hall</strong></td>
-        </tr>
-
-        <tr>
-          <td><strong>Mackinac Hall</strong></td>
-        </tr>
-
-        <tr>
-          <td><strong>Manitou Hall</strong></td>
-        </tr>
-
-        <tr>
-          <td><strong>The Marketplace</strong></td>
-        </tr>
-
-        <tr>
-          <td><strong>Mary Idema Pew Library</strong></td>
-        </tr>
-
-        <tr>
-          <td><strong>Padnos Hall of Science</strong></td>
-        </tr>
-
-        <tr>
-          <td><strong>Performing Arts Center</strong></td>
-        </tr>
-
-        <tr>
-          <td><strong>Zumberge Hall</strong></td>
-        </tr>
+	//close the connection to the databace
+	$conn->close();
+	?>
+        <!-- ******end of php code******-->
 
       </table>
       <p> <br>
@@ -297,3 +234,4 @@ i {
 <script src="tree.js"></script>
 </body>
 </html>
+
