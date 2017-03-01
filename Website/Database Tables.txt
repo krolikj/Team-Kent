@@ -1,0 +1,98 @@
+﻿mysql> SELECT * FROM questions
+    -> ;
++----+------------------------------------------+
+| id | name                                     |
++----+------------------------------------------+
+|  1 | What Are You Looking For?                |
+|  2 | What Kind of Tutoring?                   |
+|  3 | What Kind of Food Are You Looking For?   |
+|  4 | What Restaurant Would You Like?          |
+|  5 | What Drink Location Are You Looking For? |
+|  6 | What Snack Location Are You Looking For? |
+|  7 | Which ATM Provider?                      |
+|  8 | Which Building Are You Looking For?      |
++----+------------------------------------------+
+8 rows in set (0.00 sec)
+
+
+
+mysql> SELECT * FROM buildings;
++--------------------------+------+
+| name                     | next |
++--------------------------+------+
+| Au Sable                 |   22 |
+| Henry Hall               |   26 |
+| Holton-Hooker            |   27 |
+| Kindschi Hall of Science |   30 |
+| Kirkhof Center           |   28 |
+| Kleiner Commons          |   29 |
+| Lake Huron Hall          |   31 |
+| Lake Michigan Hall       |   32 |
+| Lake Ontario Hall        |   33 |
+| Lake Superior Hall       |   34 |
+| Mackinac Hall            |   35 |
+| Manitou Hall             |   36 |
+| Mary Idema Pew Library   |   38 |
+| Padnos Hall of Science   |   39 |
+| Performing Arts Center   |   40 |
+| The Commons              |   23 |
+| The Connection           |   24 |
+| The Fieldhouse           |   25 |
+| The Marketplace          |   37 |
+| Zumberge Hall            |   41 |
++--------------------------+------+
+20 rows in set (0.00 sec)
+
+mysql> SELECT * FROM answers;
++------------------------------+------+------+
+| name                         | next | q_id |
++------------------------------+------+------+
+| 42nd Street Deli             |   24 |    4 |
+| A Specific Building          |    8 |    1 |
+| A Tutoring Center            |    2 |    1 |
+| Accounting                   |   15 |    2 |
+| An ATM                       |    7 |    1 |
+| Argo Tea                     |   38 |    5 |
+| Bené                         |   29 |    4 |
+| Bleecker Street              |   23 |    4 |
+| Center Plate                 |   29 |    4 |
+| Chemistry                    |   12 |    2 |
+| Ciao                         |   28 |    4 |
+| Computer Information Systems |   16 |    2 |
+| Corner Store                 |   22 |    6 |
+| Croutons                     |   24 |    4 |
+| Drinks/Smoothies             |    5 |    3 |
+| ecoGrounds                   |   29 |    5 |
+| Economics                    |   17 |    2 |
+| Einstein Bros. Bagels        |   27 |    4 |
+| Fifth Third Bank             |   20 |    7 |
+| Finance                      |   18 |    2 |
+| Fresh Food Co.               |   23 |    4 |
+| Freshens                     |   23 |    4 |
+| Full Meal                    |    4 |    3 |
+| Green Plate                  |   24 |    4 |
+| Grille Works                 |   28 |    4 |
+| Jump                         |   23 |    4 |
+| Lake Michigan Credit Union   |   19 |    7 |
+| Late Night                   |   24 |    4 |
+| Lobby Shop                   |   28 |    6 |
+| Math                         |    9 |    2 |
+| Montague's Deli              |   29 |    4 |
+| P.O.D.                       |   35 |    6 |
+| Panda Express                |   28 |    4 |
+| Papa Johns                   |   24 |    4 |
+| PNC                          |   21 |    7 |
+| Qdoba                        |   29 |    4 |
+| Science                      |   11 |    2 |
+| Snacks                       |    6 |    3 |
+| Somewhere to Eat             |    3 |    1 |
+| Speech                       |   14 |    2 |
+| Starbucks                    |   37 |    5 |
+| Stats                        |   10 |    2 |
+| Subway                       |   28 |    4 |
+| The Bistro                   |   29 |    4 |
+| Which Wich                   |   37 |    4 |
+| Writing                      |   13 |    2 |
+| Zoca                         |   28 |    4 |
++------------------------------+------+------+
+47 rows in set (0.00 sec)
