@@ -68,8 +68,8 @@ i {
       <?php 
 	//Database info
 	$host = 'localhost';
-	$user = 'root';
-	$passward = '111092';
+	$user = 'guest';
+	$passward = '123456';
 	$db = 'studint_services';
 	
 	// Try and connect to the database
