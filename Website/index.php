@@ -150,27 +150,32 @@ i {
 		echo "</td></tr>";
 
 	}
-	?>
-	<!-- ******end of php code******-->
-
-        <tr>
-          <td><strong>The Commons - Lower Level</strong> <br>
-            <strong>Kleiner Commons</strong> <br>
-            <strong>Laker Marketplace</strong> <br>
-            <strong>Kirkhof Center</strong></td>
-        </tr>
-
-        <tr>
-          <td><strong>Kirkhof Center</strong></td>
-        </tr>
-
-        <tr>
-          <td><strong>Kirkhof Center</strong> <br>
-            <strong>The Connection</strong></td>
-        </tr>
 	
-        <!-- ******php code******-->
-	<?php
+	
+	//quary - atm info
+	$sql2 = "SELECT * FROM atm_locations";
+	$result = mysqli_query($conn,$sql2);
+
+	while($row2=mysqli_fetch_array($result)) {
+		$atm = explode(",", $row2["locations"]);
+		echo "<tr><td>";
+		foreach($atm  as $temp) {
+			
+			foreach($buildings as $btemp) {
+				if($btemp["next"] == $temp){
+					$buildin_name = $btemp["name"];
+				}
+			}
+			echo "<strong>";
+			echo $buildin_name;
+			echo "</strong> <br>";
+			
+		}
+		echo "</td></tr>";
+        
+          
+	}
+	
 	
 	//quary - get and print buildings name
 	$sql = "SELECT * FROM buildings ORDER BY next";
