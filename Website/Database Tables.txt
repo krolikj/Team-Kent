@@ -16,32 +16,35 @@
 
 
 
-mysql> SELECT * FROM buildings;
+
+mysql> SELECT * FROM buildings ORDER BY next;
 +--------------------------+------+
 | name                     | next |
 +--------------------------+------+
 | Au Sable                 |   22 |
+| The Commons              |   23 |
+| The Connection           |   24 |
+| The Fieldhouse           |   25 |
 | Henry Hall               |   26 |
 | Holton-Hooker            |   27 |
-| Kindschi Hall of Science |   30 |
 | Kirkhof Center           |   28 |
 | Kleiner Commons          |   29 |
+| Kindschi Hall of Science |   30 |
 | Lake Huron Hall          |   31 |
 | Lake Michigan Hall       |   32 |
 | Lake Ontario Hall        |   33 |
 | Lake Superior Hall       |   34 |
 | Mackinac Hall            |   35 |
 | Manitou Hall             |   36 |
+| The Marketplace          |   37 |
 | Mary Idema Pew Library   |   38 |
 | Padnos Hall of Science   |   39 |
 | Performing Arts Center   |   40 |
-| The Commons              |   23 |
-| The Connection           |   24 |
-| The Fieldhouse           |   25 |
-| The Marketplace          |   37 |
 | Zumberge Hall            |   41 |
+| Student Services         |   42 |
+| Seidman                  |   43 |
 +--------------------------+------+
-20 rows in set (0.00 sec)
+22 rows in set (0.00 sec)
 
 mysql> SELECT * FROM answers;
 +------------------------------+------+------+
@@ -96,3 +99,33 @@ mysql> SELECT * FROM answers;
 | Zoca                         |   28 |    4 |
 +------------------------------+------+------+
 47 rows in set (0.00 sec)
+
+mysql> SELECT * FROM tutoring_locations
+    -> ;
++----+------------------------------+----------+---------+--------------+
+| id | name                         | building | room    | phone        |
++----+------------------------------+----------+---------+--------------+
+|  1 | The Math Center              |       35 | A-2-601 | 616-331-2084 |
+|  2 | The Stats Center             |       35 | A-2-101 | 616-331-8969 |
+|  3 | Science Tutoring             |       42 | 200     | 616-331-3440 |
+|  4 | The Chemistry Success Center |       33 | 120     | 616-331-3317 |
+|  5 | The Writing Center           |       39 | 312     | 616-331-2922 |
+|  6 | The Speech Lab               |       32 | 154     | -            |
+|  7 | Accounting Tutoring          |       43 | 2018    | -            |
+|  8 | CIS Student Success Center   |       35 | C-2-205 | -            |
+|  9 | Economics Tutoring           |       43 | 3060    | -            |
+| 10 | Finance Tutoring             |       43 | 3025    | -            |
++----+------------------------------+----------+---------+--------------+
+10 rows in set (0.00 sec)
+
+
+mysql> SELECT * FROM atm_locations
+    -> ;
++----+-------------+
+| id | locations   |
++----+-------------+
+|  1 | 23,29,37,28 |
+|  2 | 28          |
+|  3 | 28,24       |
++----+-------------+
+3 rows in set (0.00 sec)
