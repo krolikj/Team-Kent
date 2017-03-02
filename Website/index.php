@@ -82,101 +82,76 @@ i {
 	
 	//store information in an array
   	while($row = $row=mysqli_fetch_array($result)) {
-	  $questions[] = $row;
+		$questions[] = $row;
 	}
 
 	//quary2 - get list of answers for each question - get next table 
 	foreach($questions as $temp) {
-	  //Question ID
-	  $s = $temp["id"];
-	  if($s != 8){
-		$sql2 = "SELECT * FROM answers WHERE q_id =$s ";
-	  }else{
-		$sql2 = "SELECT * FROM buildings ";
+		//Question ID
+		$s = $temp["id"];
+	  	if($s != 8){
+			$sql2 = "SELECT * FROM answers WHERE q_id =$s ";
+	  	}else{
+			$sql2 = "SELECT * FROM buildings ";
 	  	
-          }
-	  $result = mysqli_query($conn,$sql2);
+          	}
+	  	$result = mysqli_query($conn,$sql2);
 	  
-	  //print the question
-	  echo "<tr><td><p>" . $temp["name"]. "<p> </p>";
-	  echo "<ul>";  
+	  	//print the question
+	  	echo "<tr><td><p>" . $temp["name"]. "<p> </p>";
+	  	echo "<ul>";  
 	  
-	  //print answers for that question 
-	  while($row2=mysqli_fetch_array($result)) {
+	  	//print answers for that question 
+	  	while($row2=mysqli_fetch_array($result)) {
 
-		  echo "<li>". $row2["name"] . "<i>" . $row2["next"] . "</i></li>";
+			  echo "<li>". $row2["name"] . "<i>" . $row2["next"] . "</i></li>";
 		  
-          }
+		}
 
- 	  echo "</ul>";
-	  echo "</td></tr>";
+	echo "</ul>";
+	echo "</td></tr>";
 		
 	}
+	
 
 	
-      ?>
+	//quary - get buildings
+	$sql = "SELECT * FROM buildings";
+	$result =  mysqli_query($conn,$sql);
+	$buildings= array();
+	
+	//store information in an array
+  	while ($row=mysqli_fetch_array($result)) {
+		$buildings[] = $row;
+
+	}
+
+	//quary - tutoring info
+	$sql2 = "SELECT * FROM tutoring_locations";
+	$result = mysqli_query($conn,$sql2);
+
+	while($row2=mysqli_fetch_array($result)) {
+		$buildin_name;
+
+		foreach($buildings as $temp) {
+			if($temp["next"] === $row2["building"]){
+				$buildin_name = $temp["name"];
+				
+			}
+		}
+
+		echo "<tr><td><b>" . $row2["name"] . "</b><br>";
+		echo $buildin_name . ": " . $row2["room"] . "<br>";
+		
+		// print phone if avalable
+		if(strcmp($row2["phone"], "-") !== 0) {
+			echo "Phone: " . $row2["phone"] ;
+		}
+		echo "</td></tr>";
+
+	}
+	?>
 	<!-- ******end of php code******-->
-
-
-<!-- t9-->
-        <tr>
-          <td><b>The Math Center</b><br>
-            Mackinac Hall: A-2-601<br>
-            Phone: 616-331-2084 </td>
-        </tr>
-
-<!-- t10-->
-        <tr>
-          <td><b>The Stats Center</b><br>
-            Mackinac Hall: A-2-101<br>
-            Phone: 616-331-8969 </td>
-        </tr>
-
-<!-- t11-->
-        <tr>
-          <td><b>Science Tutoring</b><br>
-            Student Services: 200<br>
-            Phone: 616-331-3440 </td>
-        </tr>
-
-<!-- t12-->
-        <tr>
-          <td><b>The Chemistry Success Center</b><br>
-            Padnos Hall: 312<br>
-            Phone: 616-331-3317 </td>
-        </tr>
-
-<!-- t13-->
-        <tr>
-          <td><b>The Writing Center</b><br>
-            Lake Ontario Hall: 120<br>
-            Phone: 616-331-2922</td>
-        </tr>
-
-        <tr>
-          <td><b>The Speech Lab</b><br>
-            Lake Michigan Hall: 154 </td>
-        </tr>
-
-        <tr>
-          <td><b>Accounting Tutoring</b><br>
-            Seidman: 2018 </td>
-        </tr>
-
-        <tr>
-          <td><b>CIS Student Success Center</b><br>
-            Mackinac Hall: C-2-205 </td>
-        </tr>
-
-        <tr>
-          <td><b>Economics Tutoring</b><br>
-            Seidman: 3060</td>
-        </tr>
-
-        <tr>
-          <td><b>Finance Tutoring</b><br>
-            Seidman: 3025 </td>
-        </tr>
 
         <tr>
           <td><strong>The Commons - Lower Level</strong> <br>
@@ -207,8 +182,7 @@ i {
 		  
          }
 
-	//close the connection to the databace
-	$conn->close();
+	
 	?>
         <!-- ******end of php code******-->
 
@@ -234,4 +208,3 @@ i {
 <script src="tree.js"></script>
 </body>
 </html>
-
