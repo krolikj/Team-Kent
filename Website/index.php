@@ -40,7 +40,7 @@
 
 #qTable p {
   font-weight: bold;
-  line-height: 50%
+  line-height: 100%
 }
 
 #errdiv {
