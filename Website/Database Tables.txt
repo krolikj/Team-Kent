@@ -17,33 +17,33 @@
 
 
 
-mysql> SELECT * FROM buildings ORDER BY next;
-+--------------------------+------+
-| name                     | next |
-+--------------------------+------+
-| Au Sable                 |   22 |
-| The Commons              |   23 |
-| The Connection           |   24 |
-| The Fieldhouse           |   25 |
-| Henry Hall               |   26 |
-| Holton-Hooker            |   27 |
-| Kirkhof Center           |   28 |
-| Kleiner Commons          |   29 |
-| Kindschi Hall of Science |   30 |
-| Lake Huron Hall          |   31 |
-| Lake Michigan Hall       |   32 |
-| Lake Ontario Hall        |   33 |
-| Lake Superior Hall       |   34 |
-| Mackinac Hall            |   35 |
-| Manitou Hall             |   36 |
-| The Marketplace          |   37 |
-| Mary Idema Pew Library   |   38 |
-| Padnos Hall of Science   |   39 |
-| Performing Arts Center   |   40 |
-| Zumberge Hall            |   41 |
-| Student Services         |   42 |
-| Seidman                  |   43 |
-+--------------------------+------+
+mysql> select * from buildings order by next;
++--------------------------+------+-----------+------------+
+| name                     | next | latitude  | longitude  |
++--------------------------+------+-----------+------------+
+| Au Sable                 |   22 | 42.963260 | -85.885462 |
+| The Commons              |   23 | 42.965661 | -85.886672 |
+| The Connection           |   24 | 42.959734 | -85.888516 |
+| The Fieldhouse           |   25 | 42.966928 | -85.889803 |
+| Henry Hall               |   26 | 42.964459 | -85.888828 |
+| Holton-Hooker            |   27 | 42.966246 | -85.885423 |
+| Kirkhof Center           |   28 | 42.962730 | -85.888634 |
+| Kleiner Commons          |   29 | 42.968939 | -85.885503 |
+| Kindschi Hall of Science |   30 | 42.965850 | -85.889172 |
+| Lake Huron Hall          |   31 | 42.962678 | -85.885177 |
+| Lake Michigan Hall       |   32 | 42.961387 | -85.886107 |
+| Lake Ontario Hall        |   33 | 42.961329 | -85.885202 |
+| Lake Superior Hall       |   34 | 42.962000 | -85.886577 |
+| Mackinac Hall            |   35 | 42.966644 | -85.886862 |
+| Manitou Hall             |   36 | 42.966208 | -85.887291 |
+| The Marketplace          |   37 | 42.965907 | -85.888854 |
+| Mary Idema Pew Library   |   38 | 42.963001 | -85.889750 |
+| Padnos Hall of Science   |   39 | 42.965226 | -85.887466 |
+| Performing Arts Center   |   40 | 42.961536 | -85.888024 |
+| Zumberge Hall            |   41 | 42.962980 | -85.886771 |
+| Student Services         |   42 | 42.964459 | -85.888828 |
+| Seidman                  |   43 | 42.962152 | -85.885739 |
++--------------------------+------+-----------+------------+
 22 rows in set (0.00 sec)
 
 mysql> SELECT * FROM answers;
