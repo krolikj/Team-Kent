@@ -1,5 +1,6 @@
 <html>
 <head>
+<?php header("Cache-Control: no-cache, must-revalidate");?>
 <title>Capstone 467 Winter 2017 - GV Student Helper</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,6 +59,10 @@
 i {
   display: none
 }
+button { 
+  background:none;
+  border:none; 
+};
 
 </style>
       <div id="errdiv"></div>
@@ -86,7 +91,10 @@ $tt = "hellow";
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
 <<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBItn1cFWKbaAIFdY2XKr-jD_bqeWB-yRs" type="text/javascript"></script> 
 <script type="text/javascript"> var buildingsInfo =<?php echo json_encode($buildings); ?>; </script>
-<script src="custom.js"></script> 
+<script type="text/javascript"> var name[] =<?php echo json_encode($name); ?>; </script>
+<script type="text/javascript"> var lat[] =<?php echo json_encode($lat); ?>; </script>
+<script type="text/javascript"> var lng[] =<?php echo json_encode($lng); ?>; </script>
+<script src="custom.js"> </script> 
 <script src="tree.js"></script>
 </body>
 </html>
