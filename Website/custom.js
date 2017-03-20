@@ -1,5 +1,6 @@
 $(function () {
-    var markersArray = new Array(buildingsInfo.length);
+     var markersArray = new Array(buildingsInfo.length);
+     var x;
      	
     function initMap() {
 
@@ -77,13 +78,10 @@ $(function () {
   	  markersArray[i].setVisible(false); 
   	
 	}
-	for (i=0; i<len; ++i) {
-		
-		temp(i)
-  	  
-  	
+	for (i=0; i<len; ++i) {	
+		temp(i);
 	}
-
+	
 	function temp(num){
 		buttons[num] = document.getElementById(buildingsInfo[num].next);
 		buttons[num].addEventListener('click', function(){
@@ -96,9 +94,10 @@ $(function () {
 		prev_Marker.setVisible(true);
 		prev_Marker.infowindow.open(map, prev_Marker);
 		
-	});
-		
-		}
+		});
+	}
+	
+
 
 	
 
