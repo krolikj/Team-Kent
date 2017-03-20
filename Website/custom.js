@@ -29,23 +29,35 @@ $(function () {
 
         function BindMarker() {
 
-                for (var i = 0; i < name.length; i++) {
+            for (var j = 0; j < 1; j++) {
 
                     //get coordinates of  a building
-		posi = {lat:  parseFloat(42.964459), lng:  parseFloat(-85.888828)};
+		posi = {lat:  parseFloat(lat[j]), lng:  parseFloat(lng[j])};
+
+
+		//get name of a building
+		contentString[j] = '<div class="info-window">' +
+			'<h3>' + name[j] + '</h3>' +
+               		'</div>';
+		
+		//create an info windo for a building
+		myinfowindow= new google.maps.InfoWindow({
+			content: contentString[j],
+			maxWidth: 400
+        	});
 		
 		//create a marker for a building
-		markersArray[i] = new google.maps.Marker({
+		markersArray[j] = new google.maps.Marker({
 			position: posi,
           		map: map,
-			animation: google.maps.Animation.DROP,
+			//animation: google.maps.Animation.DROP,
 			infowindow: myinfowindow,
-			title: "Henry Hall"
+			title: name[j]
 		
 		});
 
 		//add listener for a building
-		markersArray[i].addListener('click', function () {
+		markersArray[j].addListener('click', function () {
 			if( prev_infowindow ) {
          			prev_infowindow.close();
         		}
@@ -54,7 +66,7 @@ $(function () {
             		this.infowindow.open(map, this);
 				
        	 	});
-                }
+             }
         }
 	
         var map = new google.maps.Map(mapCanvas, mapOptions);
