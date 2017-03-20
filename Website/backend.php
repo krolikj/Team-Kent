@@ -36,16 +36,9 @@
 	  	
 	  	//print answers for that question 
 	  	while($row2=mysqli_fetch_array($result)) {
-			  
-			if($s != 8){
-				echo "<li>". $row2["name"] . "<i>" . $row2["next"] . "</i></li>";
-	  		}else{
-				echo "<li><button id=". $row2["next"] .">". $row2["name"] . "<i>" . $row2["next"] . "</i></button></li>";
-	  	
-          		}
-			  
-			  
-			  
+		  
+
+	  		echo "<li>". $row2["name"] . "<i>" . $row2["next"] . "</i></li>";  
 		  	  
 		}
 
@@ -73,16 +66,18 @@
 
 	while($row2=mysqli_fetch_array($result)) {
 		$buildin_name;
+		
 
 		foreach($buildings as $temp) {
 			if($temp["next"] === $row2["building"]){
 				$buildin_name = $temp["name"];
-				
+				$id = $temp["next"];
 			}
 		}
-
+		
 		echo "<tr><td><b>" . $row2["name"] . "</b><br>";
-		echo $buildin_name . ": " . $row2["room"] . "<br>";
+		
+		echo $buildin_name . ":" . $row2["room"] . "<br>";
 		
 		// print phone if avalable
 		if(strcmp($row2["phone"], "-") !== 0) {
@@ -98,6 +93,7 @@
 	$result = mysqli_query($conn,$sql2);
 
 	while($row2=mysqli_fetch_array($result)) {
+		
 		$atm = explode(",", $row2["locations"]);
 		echo "<tr><td>";
 		foreach($atm  as $temp) {
@@ -105,8 +101,10 @@
 			foreach($buildings as $btemp) {
 				if($btemp["next"] == $temp){
 					$buildin_name = $btemp["name"];
+					$id = $temp; 
 				}
 			}
+			$id= $id+100;
 			echo "<strong>";
 			echo $buildin_name;
 			echo "</strong> <br>";
@@ -123,8 +121,9 @@
 	$results = mysqli_query($conn,$sql);
 	while($row2=mysqli_fetch_array($results)) {
 		  echo "<tr><td><strong>";
+                  echo "<button id=". $row2["next"].">";
 		  echo $row2["name"];
-		  echo "</strong></td></tr>";
+		  echo "</button></strong></td></tr>";
 		  
 		  
          }
