@@ -1,4 +1,4 @@
-﻿        <?php 
+        <?php 
 	//Database info
 	$host = 'localhost';
 	$user = 'guest';
@@ -33,12 +33,20 @@
 	  	//print the question
 	  	echo "<tr><td><p>" . $temp["name"]. "<p> </p>";
 	  	echo "<ul>";  
-	  
+	  	
 	  	//print answers for that question 
 	  	while($row2=mysqli_fetch_array($result)) {
-
-			  echo "<li>". $row2["name"] . "<i>" . $row2["next"] . "</i></li>";
-		  
+			  
+			if($s != 8){
+				echo "<li>". $row2["name"] . "<i>" . $row2["next"] . "</i></li>";
+	  		}else{
+				echo "<li><button id=". $row2["next"] .">". $row2["name"] . "<i>" . $row2["next"] . "</i></button></li>";
+	  	
+          		}
+			  
+			  
+			  
+		  	  
 		}
 
 	echo "</ul>";
@@ -112,14 +120,18 @@
 	
 	//quary - get and print buildings name
 	$sql = "SELECT * FROM buildings ORDER BY next";
-	$result = mysqli_query($conn,$sql);
-	while($row2=mysqli_fetch_array($result)) {
+	$results = mysqli_query($conn,$sql);
+	while($row2=mysqli_fetch_array($results)) {
 		  echo "<tr><td><strong>";
 		  echo $row2["name"];
 		  echo "</strong></td></tr>";
 		  
+		  
          }
+
 	$lol = "test var";
+	$lat = array_column($results, "latitude");
+	$lng = array_column($results, "longitude");
+	$name = array_column($results, "name");
 	
 	?>
-       
