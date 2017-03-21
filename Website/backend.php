@@ -88,7 +88,7 @@
 	while($row2=mysqli_fetch_array($result)) {
 		
 		$atm = explode(",", $row2["locations"]);
-		echo "<tr><td>";
+		echo "<tr><td><ul>";
 		foreach($atm  as $temp) {
 			
 			foreach($buildings as $btemp) {
@@ -97,14 +97,14 @@
 					$id = $temp; 
 				}
 			}
-			echo "<strong>";
+			
 			echo "<li>";
 			echo $buildin_name;
 			echo "<i>".$id."</i></li>";
-			echo "</strong>";
+			
 			
 		}
-		echo "</td></tr>";
+		echo "</ul></td></tr>";
         
           
 	}
