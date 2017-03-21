@@ -17,7 +17,6 @@
   	while($row = $row=mysqli_fetch_array($result)) {
 		$questions[] = $row;
 	}
-
 	//quary2 - get list of answers for each question - get next table 
 	foreach($questions as $temp) {
 		//Question ID
@@ -37,18 +36,15 @@
 	  	//print answers for that question 
 	  	while($row2=mysqli_fetch_array($result)) {
 		  
-
 	  		echo "<li>". $row2["name"] . "<i>" . $row2["next"] . "</i></li>";  
 		  	  
 		}
 		
-
 	echo "</ul>";
 	echo "</td></tr>";
 		
 	}
 	
-
 	
 	//quary - get buildings
 	$sql = "SELECT * FROM buildings";
@@ -58,17 +54,13 @@
 	//store information in an array
   	while ($row=mysqli_fetch_array($result)) {
 		$buildings[] = $row;
-
 	}
-
 	//quary - tutoring info
 	$sql2 = "SELECT * FROM tutoring_locations";
 	$result = mysqli_query($conn,$sql2);
-
 	while($row2=mysqli_fetch_array($result)) {
 		$buildin_name;
 		
-
 		foreach($buildings as $temp) {
 			if($temp["next"] === $row2["building"]){
 				$buildin_name = $temp["name"];
@@ -76,25 +68,23 @@
 			}
 		}
 		
-		echo "<tr><td><b>" . $row2["name"] . "</b><br>";
-		echo "<li>Location<i>".$id."</i></li>";
+		echo "<tr><td><ul><li><b>" . $row2["name"] . ": </b><br>";
+		echo "<i>".$id."</i>";
 		echo $buildin_name;
 		echo ":" . $row2["room"] . "<br>";
-		
+		echo "</li>";
 		
 		// print phone if avalable
 		if(strcmp($row2["phone"], "-") !== 0) {
 			echo "Phone: " . $row2["phone"] ;
 		}
-		echo "</td></tr>";
-
+		echo "</ul></td></tr>";
 	}
 	
 	
 	//quary - atm info
 	$sql2 = "SELECT * FROM atm_locations";
 	$result = mysqli_query($conn,$sql2);
-
 	while($row2=mysqli_fetch_array($result)) {
 		
 		$atm = explode(",", $row2["locations"]);
@@ -131,7 +121,6 @@
 		  
 		  
          }
-
 	$lol = "test var";
 	$lat = array_column($results, "latitude");
 	$lng = array_column($results, "longitude");
