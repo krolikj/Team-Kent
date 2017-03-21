@@ -41,6 +41,7 @@
 	  		echo "<li>". $row2["name"] . "<i>" . $row2["next"] . "</i></li>";  
 		  	  
 		}
+		
 
 	echo "</ul>";
 	echo "</td></tr>";
@@ -76,8 +77,10 @@
 		}
 		
 		echo "<tr><td><b>" . $row2["name"] . "</b><br>";
+		echo "<li>Location<i>".$id."</i></li>";
+		echo $buildin_name;
+		echo ":" . $row2["room"] . "<br>";
 		
-		echo $buildin_name . ":" . $row2["room"] . "<br>";
 		
 		// print phone if avalable
 		if(strcmp($row2["phone"], "-") !== 0) {
@@ -104,10 +107,11 @@
 					$id = $temp; 
 				}
 			}
-			$id= $id+100;
 			echo "<strong>";
+			echo "<li>";
 			echo $buildin_name;
-			echo "</strong> <br>";
+			echo "<i>".$id."</i></li>";
+			echo "</strong>";
 			
 		}
 		echo "</td></tr>";
