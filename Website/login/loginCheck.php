@@ -17,12 +17,20 @@
 		$user[] = $row;
 	}
 	foreach($user as $temp) {
+		if( empty($_POST) ) {
+			break;
+		}
 		if($_POST["username"] == $temp["name"] && $_POST["password"] == $temp["password"]){
 			session_start();
                 	$the_username = $_POST["username"];
                		$_SESSION['username'] = $the_username;
+			$mess = "";
 			break; 
+		}else{
+			$mess = "wrong username or password";
 		}
+	echo $mess."<br>";
+		    
 	}
 	session_start();
 	if(!isset($_SESSION["username"])){
