@@ -68,7 +68,7 @@
 			}
 		}
 		
-		echo "<tr><td><ul><li><b>" . $row2["name"] . ": </b><br>";
+		echo "<tr><td><ul><li>" . $row2["name"] . ": <br>";
 		echo "<i>".$id."</i>";
 		echo $buildin_name;
 		echo ":" . $row2["room"] . "<br>";
