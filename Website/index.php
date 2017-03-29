@@ -7,6 +7,7 @@
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <link href='custom.css' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
 <body>
@@ -14,7 +15,8 @@
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2">
       <h1>Capstone 467 Winter 2017 - GV Student Helper </a></h1>
-      <style>
+	
+<style>
 #qTable td {
   padding: 5px 1em;
   border-radius: 5px;
@@ -59,12 +61,16 @@
 i {
   display: none
 }
+
 button { 
   background:none;
   border:none; 
 };
 
 </style>
+
+      <?php include('login/loginCheck.php'); ?>
+
       <div id="errdiv"></div>
       <table id="qTable">
       
@@ -83,9 +89,7 @@ button {
   
 </div>
 <!-- /.container-->
-<?php 
-$tt = "hellow"; 
-?>
+
 <div id="map"></div>
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script> 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
