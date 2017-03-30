@@ -72,7 +72,7 @@ b{
 		
 	}
 	foreach($answers as $temp) {
-		echo "<option value=" .$temp["name"].">" . $temp["name"]. "</option>";
+		echo "<option value='" .$temp["name"]."'>" . $temp["name"]. "</option>";
 	}
     
     ?>
