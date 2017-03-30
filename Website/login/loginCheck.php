@@ -16,6 +16,7 @@
 	while($row=mysqli_fetch_array($result)) {
 		$user[] = $row;
 	}
+	$mess = "Login";
 	foreach($user as $temp) {
 		if( empty($_POST) ) {
 			break;
@@ -27,22 +28,32 @@
 			$mess = "";
 			break; 
 		}else{
-			$mess = "wrong username or password";
+			$mess = "wrong username or password, login again";
 		}
-	echo $mess."<br>";
+	
 		    
 	}
 	session_start();
 	if(!isset($_SESSION["username"])){
-		echo "<a href='login/login.php'>Login</a>";		
+		echo "<style> 
+			input[type=checkbox]:checked + nav{
+				height: 41px;
+			}</style>";
+		echo "<a href='login/login.php'>".$mess."</a>";		
 	}
-	else{
-		echo "<a href='addAnswer/addAnswers.php'>Add Answers</a><br>";
-		echo "<a href='addBuilding/addBuilding1.php'>Add Building</a><br>";
-		echo "<a href='deleteAnswer/deleteAnswers1.php'>Delete Answers</a><br>";
+	else{	
+		echo "<style> 
+			input[type=checkbox]:checked + nav{
+				height: 287px;
+			}</style>";
+		echo "<a href='addAnswer/addAnswers.php'>Add Answers</a>";
+		echo "<a href='addBuilding/addBuilding1.php'>Add Building</a>";
+		echo "<a href='addQuestion/addQuestion1.php'>Add Question</a>";
+		echo "<a href='deleteAnswer/deleteAnswers1.php'>Delete Answers</a>";
 		
-		echo "<a href='deleteBuilding/deleteBuilding1.php'>Delete Building</a><br>";
-		echo "<a href='logout.php'>Logout</a><br>";
+		echo "<a href='deleteBuilding/deleteBuilding1.php'>Delete Building</a>";
+		echo "<a href='logout.php'>Logout</a>";
+		
 	}
 
 ?> 
