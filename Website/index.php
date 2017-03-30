@@ -8,13 +8,28 @@
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <link href='custom.css' rel='stylesheet' type='text/css'>
 
+
 </head>
 <body>
 <body>
+<header class="clearfix">
+	<div class="header-left">
+		<h1>Capstone 467 Winter 2017 - GV Student Helper</h1>
+	</div>
+	<div class="header-right">
+		<label for="open">
+			<span class="hidden-desktop"></span>
+		</label>
+		<input type="checkbox" name="" id="open">
+			<nav>
+				<?php include('login/loginCheck.php'); ?>
+			</nav>
+		</div>
+</header>
 <div class="container">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2">
-      <h1>Capstone 467 Winter 2017 - GV Student Helper </a></h1>
+      
 	
 <style>
 #qTable td {
@@ -65,11 +80,76 @@ i {
 button { 
   background:none;
   border:none; 
-};
+}
+header{
+	width: 100%;
+	height: auto;
+	background: #00008B;
+}
+.header-left,
+.header-right{
+	width: 100%;
+	position: relative;
+	text-align: center;
+	color: white;
+}
 
+.header-right label{
+	position: absolute;
+	top: -3.7em;
+	right: 0;
+	cursor: pointer;
+}
+.header-right span{
+	position: relative;
+	width: 2em;
+	height: 2em;
+	background: white;
+	
+}
+.header-right span:hover{
+	background: #FF0000;
+}
+.header-right span:before,
+.header-right span:after{
+	content: '';
+	position: absolute;
+	width: 2em;
+	height: .5em;
+	top: 4px;
+	left: 0;
+	background: #00008B;
+}
+.header-right span:after{
+	top: 16px;
+}
+
+#open{
+	display: none;
+}
+
+.hidden-desktop{
+	display: block;
+}
+
+nav{
+	line-height: 40px;
+	height: 0;
+	overflow: hidden;
+}
+
+nav>a{
+	color: white;
+	padding: 0 1em;
+	display: block;	
+}
+nav>a:hover{
+	background: #eeefff;
+	color: #FF0000;
+}
 </style>
 
-      <?php include('login/loginCheck.php'); ?>
+      
 
       <div id="errdiv"></div>
       <table id="qTable">
