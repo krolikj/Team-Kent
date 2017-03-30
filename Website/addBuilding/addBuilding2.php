@@ -24,6 +24,25 @@
 			VALUES('$building','$next','$lat','$lon')";
 	if ($conn->query($sql) === TRUE) {
  		echo "New record created successfully";
+		$sql = "SELECT count(*) from answers where next >= $next";
+		$results = mysqli_query($conn,$sql);
+		$ch[0] =0;
+		while($row2=mysqli_fetch_array($results)) {	  
+			$ch = $row2;
+		}
+		$count = 1;
+		$count2 = 0;
+		if($ch[0] >0){
+			
+			while($count <=$ch[0]){
+				$sql = "update answers set next=$next+$count where next= $next+$count2";
+				$results = mysqli_query($conn,$sql);
+				
+				$count++;
+				$count2++;
+			}
+		}
+		
 	} else {
 		echo "Error: " . $sql . "<br>" . $conn->error;
 	}
