@@ -9,15 +9,13 @@
 	$conn = mysqli_connect($host,$user,$passward,$db);
 	
 	$answer = $_POST["answer"];
-
-	$sql = "DELETE FROM answers where name = '$answer'";
+	echo $answer."<br>";
+	$sql = "DELETE FROM answers where name='$answer'";
 	if ($conn->query($sql) === TRUE) {
  		echo "record successfully deleted";
 	} else {
 		echo "Error: " . $sql . "<br>" . $conn->error;
 	}
-	
-	
-	
-	echo "<a href='../index.php'>Home Page</a>";
+
+	echo "<br><a href='../index.php'>Home Page</a>";
 ?>
