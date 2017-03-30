@@ -21,12 +21,14 @@
 	foreach($questions as $temp) {
 		//Question ID
 		$s = $temp["id"];
-	  	if($s != 8){
+	  	if($s > 8){
+			break;
+	  	}elseif($s != 8){
 			$sql2 = "SELECT * FROM answers WHERE q_id =$s ";
-	  	}else{
-			$sql2 = "SELECT * FROM buildings ";
 	  	
-          	}
+          	}else{
+			$sql2 = "SELECT * FROM buildings ";
+		}
 	  	$result = mysqli_query($conn,$sql2);
 	  
 	  	//print the question
@@ -119,11 +121,32 @@
 		  echo $row2["name"];
 		  echo "</button></strong></td></tr>";
 		  
-		  
-         }
+		  	  
+        }
 	$lol = "test var";
 	$lat = array_column($results, "latitude");
 	$lng = array_column($results, "longitude");
 	$name = array_column($results, "name");
 	
-	?>
+	foreach($questions as $temp) {
+		//Question ID
+		$s = $temp["id"];
+		if($s > 8){
+			$sql2 = "SELECT * FROM answers WHERE q_id =$s ";
+			$result = mysqli_query($conn,$sql2);
+	  
+			//print the question
+			echo "<tr><td><p>" . $temp["name"]. "<p> </p>";
+			echo "<ul>";  
+	  	
+			//print answers for that question 
+			while($row2=mysqli_fetch_array($result)) {
+		  
+	  			echo "<li>". $row2["name"] . "<i>" . $row2["next"] . "</i></li>";  
+		  		  
+			}
+			echo "</ul>";
+			echo "</td></tr>";
+		}
+	}
+?>
