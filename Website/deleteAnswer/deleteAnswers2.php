@@ -10,7 +10,7 @@
 	
 	$answer = $_POST["answer"];
 
-	$sql = "DELETE FROM buildings where name = '$answer'";
+	$sql = "DELETE FROM answers where name = '$answer'";
 	if ($conn->query($sql) === TRUE) {
  		echo "record successfully deleted";
 	} else {
