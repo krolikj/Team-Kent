@@ -46,7 +46,7 @@ b{
 </style>
 <body>
 
-<h2>Add Answers to A Question </h2>
+<h2>Delete Buildings </h2>
 <form id="addquestions" action="deleteBuilding2.php" method="post">
   
   <div class="container">
@@ -72,7 +72,7 @@ b{
 		
 	}
 	foreach($answers as $temp) {
-		echo "<option value=" .$temp["name"].">" . $temp["name"]. "</option>";
+		echo "<option value='" .$temp["next"]."'>" . $temp["name"]. "</option>";
 	}
     
     ?>
