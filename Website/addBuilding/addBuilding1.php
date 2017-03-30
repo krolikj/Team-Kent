@@ -8,6 +8,7 @@
 input[type=text],input[type = number]{
     width: 100%;
     padding: 12px;
+    
 
 }
 
@@ -31,7 +32,13 @@ button:hover {
 }
 .container {
     padding:20px;
-    background-color:#ADD8E6;
+    background-color:#00008B;
+}
+a{
+    color: white;
+}
+b{
+    color: white;
 }
 
 
