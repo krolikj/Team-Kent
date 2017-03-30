@@ -5,7 +5,7 @@
 </head>
 <style>
 
-input[type=text]{
+input[type=text],input[type = number]{
     width: 100%;
     padding: 12px;
 
@@ -42,68 +42,43 @@ b{
 
 
 
+
 </style>
 <body>
 
 <h2>Add Answers to A Question </h2>
-<form id="addquestions" action="addAnswers3.php" method="post">
+<form id="addquestions" action="addAnswers2.php" method="post">
   
   <div class="container">
     
+    <b>Select question</b>
+    <select name="question">
     <?php
-	echo "<input type='hidden' name='qid' value=" ;
-    	echo $_POST["question"];
-	echo ">";
-    ?>
-    
-    
-    <?php 
-
-	//Database info
+    //Database info
 	$host = 'localhost';
 	$user = 'guest';
 	$passward = '123456';
 	$db = 'studint_services';
-	$temp = $_POST["Num"];
+	
 	// Try and connect to the database
 	$conn = mysqli_connect($host,$user,$passward,$db);
-
 	$sql = "SELECT * FROM questions";
 	$result =  mysqli_query($conn,$sql);
 	$questions = array();
+	
 	//store information in an array
   	while($row = $row=mysqli_fetch_array($result)) {
 		$questions[] = $row;
 		
 	}
-	$sql = "SELECT * FROM buildings";
-	$result =  mysqli_query($conn,$sql);
-	$buildings = array();
-	//store information in an array
-  	while($row = $row=mysqli_fetch_array($result)) {
-		$buildings[] = $row;
-		
+	foreach($questions as $temp) {
+		echo "<option value=" .$temp["id"].">" . $temp["name"]. "</option>";
 	}
-	
-	while($temp > 0){
-		echo "<b>Add the answer and Select next table<b>";
-		echo "<input type='text'  name='answers[]' >";
-		
-		echo "<select name='question[]'>";
-
-		foreach($questions as $temp1) {
-			echo "<option value=" .$temp1["id"].">" . $temp1["name"]. "</option>";
-		}
-		foreach($buildings as $temp1) {
-			echo "<option value=" .$temp1["next"].">" . $temp1["name"]. "</option>";
-		}
-		
-		
-		echo "</select>";
-	$temp--;
-	} 
-    ?>
     
+    ?>
+    </select>
+    <b>How many Answers do you want to add?</b><br>
+    <input type="number" name="Num" required>
     
     <button type="submit">Next</button>
     
