@@ -1,56 +1,74 @@
-<?php   
-
-	include('../databaseInfo.php');
-
+        <?php 
+	include('databaseInfo.php');
+	
 	// Try and connect to the database
 	$conn = mysqli_connect($host,$user,$passward,$db);
-	$sql = "SELECT * FROM user";
+	
+	//quary1 - get questions and ids
+	$sql = "SELECT * FROM questions";
 	$result =  mysqli_query($conn,$sql);
-	$user = array();
+	$questions = array();
 	
-	 
-	while($row=mysqli_fetch_array($result)) {
-		$user[] = $row;
+	//store information in an array
+  	while($row = $row=mysqli_fetch_array($result)) {
+		$questions[] = $row;
 	}
-	$mess = "Login";
-	foreach($user as $temp) {
-		if( empty($_POST) ) {
-			break;
+	//quary2 - get list of answers for each question - get next table 
+	foreach($questions as $temp) {
+		//Question ID
+		$s = $temp["id"];
+	  	if($s != 8){
+			$sql2 = "SELECT * FROM answers WHERE q_id =$s ";
+	  	
+          	}else{
+			$sql2 = "SELECT * FROM buildings ";
 		}
-		if($_POST["username"] == $temp["name"] && $_POST["password"] == $temp["password"]){
-			session_start();
-                	$the_username = $_POST["username"];
-               		$_SESSION['username'] = $the_username;
-			$mess = "";
-			break; 
-		}else{
-			$mess = "wrong username or password, login again";
+	  	$result = mysqli_query($conn,$sql2);
+	  
+	  	//print the question
+	  	echo "<tr><td><p>" . $temp["name"]. "<p> </p>";
+	  	echo "<ul>";  
+	  	
+	  	//print answers for that question 
+	  	while($row2=mysqli_fetch_array($result)) {
+		  
+	  		echo "<li>". $row2["name"] . "<i>" . $row2["next"] . "</i></li>";  
+		  	  
 		}
-	
-		    
-	}
-	session_start();
-	if(!isset($_SESSION["username"])){
-		echo "<style> 
-			input[type=checkbox]:checked + nav{
-				height: 41px;
-			}</style>";
-		echo "<a href='login/login.php'>".$mess."</a>";		
-	}
-	else{	
-		echo "<style> 
-			input[type=checkbox]:checked + nav{
-				height: 328px;
-			}</style>";
-		echo "<a href='addAnswer/addAnswers.php'>Add Answers</a>";
-		echo "<a href='addBuilding/addBuilding1.php'>Add Building</a>";
-		echo "<a href='addQuestion/addQuestion1.php'>Add Question</a>";
-		echo "<a href='deleteAnswer/deleteAnswers1.php'>Delete Answers</a>";
-		echo "<a href='deleteQuestion/deleteQuestion1.php'>Delete Question</a>";
 		
-		echo "<a href='deleteBuilding/deleteBuilding1.php'>Delete Building</a>";
-		echo "<a href='logout.php'>Logout</a>";
+	echo "</ul>";
+	echo "</td></tr>";
 		
 	}
-
-?> 
+	
+	
+	//quary - get buildings
+	$sql = "SELECT * FROM buildings";
+	$result =  mysqli_query($conn,$sql);
+	$buildings= array();
+	
+	//store information in an array
+  	while ($row=mysqli_fetch_array($result)) {
+		$buildings[] = $row;
+	}
+	
+	
+	
+	//quary - get and print buildings name
+	$sql = "SELECT * FROM buildings ORDER BY next";
+	$results = mysqli_query($conn,$sql);
+	while($row2=mysqli_fetch_array($results)) {
+		  echo "<tr><td><strong>";
+                  echo "<button id=". $row2["next"].">";
+		  echo $row2["name"];
+		  echo "</button></strong></td></tr>";
+		  
+		  	  
+        }
+	$lol = "test var";
+	$lat = array_column($results, "latitude");
+	$lng = array_column($results, "longitude");
+	$name = array_column($results, "name");
+	
+	
+?>
