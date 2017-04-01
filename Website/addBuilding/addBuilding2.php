@@ -30,19 +30,38 @@
 		while($row2=mysqli_fetch_array($results)) {	  
 			$ch = $row2;
 		}
-		$count = 1;
-		$count2 = 0;
+		$sql = "SELECT count(*) from questions where id >= $next";
+		$results = mysqli_query($conn,$sql);
+		$ch1[0] =0;
+		while($row2=mysqli_fetch_array($results)) {	  
+			$ch1 = $row2;
+		}
+		$count = $ch[0];
+		$count2 = $ch[0]-1;
 		if($ch[0] >0){
 			
-			while($count <=$ch[0]){
+			while($count >=1){
 				$sql = "update answers set next=$next+$count where next= $next+$count2";
 				$results = mysqli_query($conn,$sql);
 				
-				$count++;
-				$count2++;
+				$count--;
+				$count2--;
 			}
 		}
+		$count = $ch1[0];
+		$count2 = $ch1[0]-1;
+		if($ch1[0] >0){
+			echo $count;
+			echo $count2;
+			while($count >=1){
+				$sql = "update questions set id=$next+$count where id= $next+$count2";
+				$results = mysqli_query($conn,$sql);
+				
+				$count--;
+				$count2--;
+			}
 		
+		}
 	} else {
 		echo "Error: " . $sql . "<br>" . $conn->error;
 	}
