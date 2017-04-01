@@ -59,11 +59,8 @@ b{
     
     <?php 
 
-	//Database info
-	$host = 'localhost';
-	$user = 'guest';
-	$passward = '123456';
-	$db = 'studint_services';
+	include('databaseInfo.php');
+	  
 	$temp = $_POST["Num"];
 	// Try and connect to the database
 	$conn = mysqli_connect($host,$user,$passward,$db);
