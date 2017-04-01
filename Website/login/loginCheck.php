@@ -44,12 +44,13 @@
 	else{	
 		echo "<style> 
 			input[type=checkbox]:checked + nav{
-				height: 287px;
+				height: 328px;
 			}</style>";
 		echo "<a href='addAnswer/addAnswers.php'>Add Answers</a>";
 		echo "<a href='addBuilding/addBuilding1.php'>Add Building</a>";
 		echo "<a href='addQuestion/addQuestion1.php'>Add Question</a>";
 		echo "<a href='deleteAnswer/deleteAnswers1.php'>Delete Answers</a>";
+		echo "<a href='deleteQuestion/deleteQuestion1.php'>Delete Question</a>";
 		
 		echo "<a href='deleteBuilding/deleteBuilding1.php'>Delete Building</a>";
 		echo "<a href='logout.php'>Logout</a>";
