@@ -54,11 +54,7 @@ b{
     <b>Select the answer you want to delete</b>
     <select name="answer">
     <?php
-    //Database info
-	$host = 'localhost';
-	$user = 'guest';
-	$passward = '123456';
-	$db = 'studint_services';
+    	include('databaseInfo.php');
 	
 	// Try and connect to the database
 	$conn = mysqli_connect($host,$user,$passward,$db);
