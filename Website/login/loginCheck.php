@@ -1,7 +1,11 @@
 <?php   
 
+	
 	//Database info
-	include('databaseInfo.php');
+	$host = 'localhost';
+	$user = 'guest';
+	$passward = '123456';
+	$db = 'studint_services';
 
 	// Try and connect to the database
 	$conn = mysqli_connect($host,$user,$passward,$db);
