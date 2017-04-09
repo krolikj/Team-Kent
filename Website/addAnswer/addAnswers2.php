@@ -59,7 +59,7 @@ b{
     
     <?php 
 
-	include('databaseInfo.php');
+	include('../databaseInfo.php');
 	  
 	$temp = $_POST["Num"];
 	// Try and connect to the database
