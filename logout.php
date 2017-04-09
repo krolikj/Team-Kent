@@ -20,7 +20,7 @@ session_destroy();
 <div class="auto-style1">
 <form>
 <p><span class="auto-style2"><b>You have successfully logged out</b></span></p>
-<button formaction='../index.php' style='width: 10%'>Return Home</button>
+<button formaction='index.php' style='width: 10%'>Return Home</button>
 </form>
 </div>
 
