@@ -1,0 +1,98 @@
+
+Q: What are you looking for?
+	tutoring
+	food
+	ATM
+	Computer Lab
+	A Specific Building
+
+Q: Tutoring?
+	Math Center
+	Stats Center
+	Science Tutoring
+	Chemisty Success Center
+	Writing Center
+	Speech Lab
+	Accounting Tutoring
+	CIS Student Success Center
+	Economics Tutoring
+	Finance Tutoring
+
+Q: Food?
+	Full meal
+	Drinks/Smoothies
+	Snacks
+
+	Q: Full meal?
+		42nd Street Deli
+		Bené
+		Bleecker Street
+		Center Plate
+		Ciao
+		Croutons
+		Einstein Bros. Bagels
+		Fresh Food Co.
+		Freshens
+		Green Plate
+		Grille Works
+		Jump
+		Late Night
+		Montague's Deli
+		Panda Express
+		Papa Johns
+		Qdoba
+		Subway
+		The Bistro
+		Which Wich
+		Zoca
+
+	Q: Drinks/Smoothies
+		Argo Tea
+		ecoGrounds
+		Starbucks
+	
+	Q: Snacks?
+		Corner Store
+		Lobby Shop
+		P.O.D.
+
+Q: ATM?
+	Lake Michigan Credit Union
+	Fifth Third Bank
+	PNC
+
+	Q: Lake Michigan Credit Union?
+		The Commons (Lower Level)
+		Kleiner Commons
+		Laker Marketplace
+		Kirkhof
+		
+	Q: Fifth Third Bank?
+		Kirkhof
+
+	Q: PNC?
+		Kirkhof
+		The Connection
+
+Q: Building?
+	Au Sable
+	The Commons
+	The Connection
+	Fieldhouse
+	Henry Hall
+	Holton-Hooker
+	Kirkhof Center
+	Kleiner Commons
+	Kindschi Hall of Science
+	Lake Huron Hall
+	Lake Michigan Hall
+	Lake Ontario Hall
+	Lake Superior Hall
+	Laker Village
+	Mackinac Hall
+	Manitou Hall
+	The Marketplace
+	Mary Idema Pew Library
+	Padnos Hall of Science
+	Performing Arts Center
+	Zumberge Hall
