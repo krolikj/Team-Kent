@@ -54,7 +54,7 @@ b{
     <b>Select question</b>
     <select name="question">
     <?php
-   	include('databaseInfo.php');
+   	include('../databaseInfo.php');
 	
 	// Try and connect to the database
 	$conn = mysqli_connect($host,$user,$passward,$db);
