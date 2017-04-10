@@ -1,9 +1,5 @@
         <?php 
-	//Database info
-	$host = 'localhost';
-	$user = 'guest';
-	$passward = '123456';
-	$db = 'studint_services';
+	include('databaseInfo.php');
 	
 	// Try and connect to the database
 	$conn = mysqli_connect($host,$user,$passward,$db);
@@ -17,17 +13,16 @@
   	while($row = $row=mysqli_fetch_array($result)) {
 		$questions[] = $row;
 	}
-
 	//quary2 - get list of answers for each question - get next table 
 	foreach($questions as $temp) {
 		//Question ID
 		$s = $temp["id"];
 	  	if($s != 8){
 			$sql2 = "SELECT * FROM answers WHERE q_id =$s ";
-	  	}else{
-			$sql2 = "SELECT * FROM buildings ";
 	  	
-          	}
+          	}else{
+			$sql2 = "SELECT * FROM buildings ";
+		}
 	  	$result = mysqli_query($conn,$sql2);
 	  
 	  	//print the question
@@ -37,17 +32,15 @@
 	  	//print answers for that question 
 	  	while($row2=mysqli_fetch_array($result)) {
 		  
-
 	  		echo "<li>". $row2["name"] . "<i>" . $row2["next"] . "</i></li>";  
 		  	  
 		}
-
+		
 	echo "</ul>";
 	echo "</td></tr>";
 		
 	}
 	
-
 	
 	//quary - get buildings
 	$sql = "SELECT * FROM buildings";
@@ -57,63 +50,8 @@
 	//store information in an array
   	while ($row=mysqli_fetch_array($result)) {
 		$buildings[] = $row;
-
-	}
-
-	//quary - tutoring info
-	$sql2 = "SELECT * FROM tutoring_locations";
-	$result = mysqli_query($conn,$sql2);
-
-	while($row2=mysqli_fetch_array($result)) {
-		$buildin_name;
-		
-
-		foreach($buildings as $temp) {
-			if($temp["next"] === $row2["building"]){
-				$buildin_name = $temp["name"];
-				$id = $temp["next"];
-			}
-		}
-		
-		echo "<tr><td><b>" . $row2["name"] . "</b><br>";
-		
-		echo $buildin_name . ":" . $row2["room"] . "<br>";
-		
-		// print phone if avalable
-		if(strcmp($row2["phone"], "-") !== 0) {
-			echo "Phone: " . $row2["phone"] ;
-		}
-		echo "</td></tr>";
-
 	}
 	
-	
-	//quary - atm info
-	$sql2 = "SELECT * FROM atm_locations";
-	$result = mysqli_query($conn,$sql2);
-
-	while($row2=mysqli_fetch_array($result)) {
-		
-		$atm = explode(",", $row2["locations"]);
-		echo "<tr><td>";
-		foreach($atm  as $temp) {
-			
-			foreach($buildings as $btemp) {
-				if($btemp["next"] == $temp){
-					$buildin_name = $btemp["name"];
-					$id = $temp; 
-				}
-			}
-			$id= $id+100;
-			echo "<strong>";
-			echo $buildin_name;
-			echo "</strong> <br>";
-			
-		}
-		echo "</td></tr>";
-        
-          
-	}
 	
 	
 	//quary - get and print buildings name
@@ -125,12 +63,12 @@
 		  echo $row2["name"];
 		  echo "</button></strong></td></tr>";
 		  
-		  
-         }
-
+		  	  
+        }
 	$lol = "test var";
 	$lat = array_column($results, "latitude");
 	$lng = array_column($results, "longitude");
 	$name = array_column($results, "name");
 	
-	?>
+	
+?>
